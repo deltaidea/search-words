@@ -55,6 +55,9 @@ document.querySelector('#search').addEventListener('click', () => {
 
   findAllMatching(0, givenLetters, [])
 
-  const result = matchingCombinations.map(words => words.join(' ')).map(s => `<div class="alert alert-success">${s}</div>`).join('\n')
+  let result = '<div class="alert alert-warning">Ничего не нашлось. :(</div>'
+  if (matchingCombinations.length > 0) {
+    result = matchingCombinations.map(words => words.join(' ')).map(s => `<div class="alert alert-success">${s}</div>`).join('\n')
+  }
   document.querySelector('#result').innerHTML = result
 })
